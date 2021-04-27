@@ -52,10 +52,12 @@ if [[ -f requirements.txt ]]; then
   python -m pip install --quiet -r requirements.txt | indent
 else
   puts-step "Installing Pelican"
-  python -m pip install --quiet pelican | indent
+  #python -m pip install --quiet pelican | indent
+  pip install --quiet pelican | indent
 
   puts-step "Installing Markdown"
-  python -m pip install --quiet Markdown | indent
+  #python -m pip install --quiet Markdown | indent
+  pip install --quiet Markdown | indent
 fi
 
 puts-step "Running pelican"
