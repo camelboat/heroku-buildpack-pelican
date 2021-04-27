@@ -15,7 +15,7 @@ rm -fr $CACHE_DIR
 mkdir -p $CACHE_DIR
 
 # Versions.
-PYTHON_VERSION="python-3.8.6"
+PYTHON_VERSION="python-3.4.10"
 PYTHON_STACK="heroku-18"
 NGINX_VERSION="nginx-1.7.2"
 PCRE_VERSION='pcre-8.36'
@@ -37,8 +37,8 @@ export PATH=$CACHE_DIR/$PYTHON_VERSION/bin:$PATH
 export C_INCLUDE_PATH=$CACHE_DIR/$PYTHON_VERSION/include
 export CPLUS_INCLUDE_PATH=$CACHE_DIR/$PYTHON_VERSION/include
 export LIBRARY_PATH=$CACHE_DIR/$PYTHON_VERSION/lib
-#export LD_LIBRARY_PATH=$CACHE_DIR/$PYTHON_VERSION/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
+export LD_LIBRARY_PATH=$CACHE_DIR/$PYTHON_VERSION/lib
+#export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
 
 puts-step "Ensure pip"
 python -m ensurepip --upgrade | indent
@@ -102,6 +102,4 @@ fi
 
 cp $ROOT_DIR/conf/mime.types $BUILD_DIR/
 cp $BIN_DIR/launch-nginx "$BUILD_DIR/local/sbin"
-
-set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib:/app/vendor/libffi-3.0/lib
 
