@@ -18,7 +18,7 @@ mkdir -p $CACHE_DIR
 PYTHON_VERSION="python-3.6.9"
 #PYTHON_STACK="cedar-14"
 PYTHON_STACK="heroku-18"
-NGINX_VERSION="nginx-1.8.1"
+NGINX_VERSION="nginx-1.16.1"
 PCRE_VERSION='pcre-8.36'
 source $BIN_DIR/utils
 
@@ -97,7 +97,7 @@ if [[ ! -d "$CACHE_DIR/$NGINX_VERSION" ]]; then
     --with-http_gzip_static_module
     #--with-http_gzip_static_module &> /dev/null
   make -j2 
-  make -j2 &> /dev/null
+  #make -j2 &> /dev/null
 fi
 
 puts-step "Install nginx"
