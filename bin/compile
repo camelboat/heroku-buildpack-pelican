@@ -84,7 +84,7 @@ fi
 puts-step "Installing nginx ($NGINX_VERSION)"
 if [[ ! -d "$CACHE_DIR/$NGINX_VERSION" ]]; then
   cd $CACHE_DIR
-  curl http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -s | tar xz &> /dev/null
+  curl http://nginx.org/download/$NGINX_VERSION.tar.gz -s | tar xz &> /dev/null
   cd $NGINX_VERSION
   ./configure --prefix=$BUILD_DIR/local \
     --with-pcre=$CACHE_DIR/$PCRE_VERSION \
@@ -95,9 +95,11 @@ if [[ ! -d "$CACHE_DIR/$NGINX_VERSION" ]]; then
     --with-http_gzip_static_module &> /dev/null
   make -j2 &> /dev/null
 fi
+puts-step "Finish make 1"
 
 cd $CACHE_DIR/$NGINX_VERSION
 make install &> /dev/null
+puts-step "Finish make 2"
 
 mkdir -p $BUILD_DIR/.profile.d
 cp $ROOT_DIR/conf/path.sh $BUILD_DIR/.profile.d/
