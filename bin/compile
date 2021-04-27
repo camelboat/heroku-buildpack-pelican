@@ -42,7 +42,7 @@ export LD_LIBRARY_PATH=$CACHE_DIR/$PYTHON_VERSION/lib
 #export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
 
 puts-step "Ensure pip"
-python -m ensurepip --upgrade | indent
+#python -m ensurepip --upgrade | indent
 #pip install --upgrade pip
 
 cd $BUILD_DIR
