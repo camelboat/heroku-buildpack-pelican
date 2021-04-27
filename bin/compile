@@ -15,7 +15,7 @@ rm -fr $CACHE_DIR
 mkdir -p $CACHE_DIR
 
 # Versions.
-PYTHON_VERSION="python-3.4.10"
+PYTHON_VERSION="python-3.6.9"
 #PYTHON_STACK="cedar-14"
 PYTHON_STACK="heroku-18"
 NGINX_VERSION="nginx-1.7.2"
