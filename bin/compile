@@ -94,7 +94,9 @@ if [[ ! -d "$CACHE_DIR/$NGINX_VERSION" ]]; then
     --without-poll_module \
     --without-http_gzip_module \
     --without-http_proxy_module \
-    --with-http_gzip_static_module &> /dev/null
+    --with-http_gzip_static_module
+    #--with-http_gzip_static_module &> /dev/null
+  make -j2 
   make -j2 &> /dev/null
 fi
 
